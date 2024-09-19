@@ -1,0 +1,17 @@
+Q. What is tuple? Difference between list and tuple
+
+tuple is a collection of ordered and immutable data-items.values are placed sequentially inside '()' brackets.
+
+--difference between list and tuple:
+
+1.
+list are mutable.
+tuple are immutable.
+
+2.
+list is defined with '[]'
+tuple is defined with '()'
+
+3.
+list provides methods like .append(), .remove(), .extend(), etc
+tuple does not allow data modification hence have methods like .count() and .index().
