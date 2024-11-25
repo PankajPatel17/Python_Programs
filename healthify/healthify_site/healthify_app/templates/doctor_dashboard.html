@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Doctor Dashboard</h2>
+<h3>Appointments:</h3>
+<ul>
+    {% for appointment in appointments %}
+        <li>{{ appointment.patient }} - {{ appointment.date }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

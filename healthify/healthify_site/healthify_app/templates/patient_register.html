@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Add link to Google Fonts for Roboto -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+<h2 style="text-align: center; color: #007bff; font-size: 2.5em; font-family: 'Roboto', sans-serif; margin-bottom: 30px;">Patient Registration</h2>
+
+<div style="max-width: 500px; margin: 0 auto; background-color: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+    <form method="POST">
+        {% csrf_token %}
+        
+        <!-- First Name -->
+        <div style="margin-bottom: 20px;">
+            <label for="first_name" style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #333;">First Name</label>
+            <input type="text" name="first_name" id="first_name" value="{{ form.first_name.value }}" placeholder="First Name" required
+                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; font-family: 'Roboto', sans-serif; outline: none;">
+            {% if form.first_name.errors %}
+                <p style="color: red; font-size: 0.9em;">{{ form.first_name.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Last Name -->
+        <div style="margin-bottom: 20px;">
+            <label for="last_name" style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #333;">Last Name</label>
+            <input type="text" name="last_name" id="last_name" value="{{ form.last_name.value }}" placeholder="Last Name" required
+                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; font-family: 'Roboto', sans-serif; outline: none;">
+            {% if form.last_name.errors %}
+                <p style="color: red; font-size: 0.9em;">{{ form.last_name.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Email -->
+        <div style="margin-bottom: 20px;">
+            <label for="email" style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #333;">Email</label>
+            <input type="email" name="email" id="email" value="{{ form.email.value }}" placeholder="Email" required
+                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; font-family: 'Roboto', sans-serif; outline: none;">
+            {% if form.email.errors %}
+                <p style="color: red; font-size: 0.9em;">{{ form.email.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Age -->
+        <div style="margin-bottom: 20px;">
+            <label for="age" style="font-family: 'Roboto', sans-serif; font-size: 1rem; color: #333;">Age</label>
+            <input type="number" name="age" id="age" value="{{ form.age.value }}" placeholder="Age" required
+                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ddd; font-size: 1rem; font-family: 'Roboto', sans-serif; outline: none;">
+            {% if form.age.errors %}
+                <p style="color: red; font-size: 0.9em;">{{ form.age.errors }}</p>
+            {% endif %}
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+            <button type="submit" 
+                style="background-color: #007bff; color: white; padding: 14px 20px; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; width: 100%; font-family: 'Roboto', sans-serif; transition: background-color 0.3s;">
+                Register
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Add some hover effects for better interactivity -->
+<style>
+    input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+{% endblock %}
